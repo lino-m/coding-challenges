@@ -24,4 +24,8 @@ class RoversView
     puts 'Commander, go ahead and select your rover by index'
     gets.chomp.to_i - 1
   end
+
+  def success_message(action)
+    "Successfully #{action}"
+  end
 end
