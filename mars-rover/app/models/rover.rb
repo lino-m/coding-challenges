@@ -62,27 +62,9 @@ class Rover
       @position[1] -= 1
     end
   end
+
+  def is_position_in_field?
+    # returns TRUE if new location is within the field defined for rover
+    # returns FALSE if the position outsifde the field defined for rover
+  end
 end
-
-# field = Field.new(size_x: 5, size_y: 5)
-# orientation = 'N'
-# position = [1, 2]
-# rover = Rover.new(field: field, orientation: orientation, position: position)
-
-# # 1
-# rover.turn_left
-# rover.move
-# # 2
-# rover.turn_left
-# rover.move
-# # 3
-# rover.turn_left
-# rover.move
-# # 4
-# rover.turn_left
-# rover.move
-
-# rover.move
-
-# p rover.orientation
-# p rover.position
