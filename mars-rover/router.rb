@@ -24,7 +24,7 @@ class Router
     puts '1 - Launch new mission to Mars'
     puts '2 - Launch new Rover on Mars'
     puts '3 - Navigate a Rover'
-    puts '4 - Get location of your rover'
+    puts '4 - Get location of your rovers'
     puts '5 - Leave Ground Controll'
     # TODO: Add invalid command
   end

@@ -20,13 +20,13 @@ class RoversController
     else
       puts "Invalid Input - Issue command with 'Y' or 'N' to launch the Mission"
     end
+    @rovers_view.success_message('launched Rover to Mars, Commander!')
   end
 
   def navigate_rover
     rover = select_rover
     @rovers_view.advice_user_that('... rover is ready for instructions')
     instructions = @rovers_view.ask_user_for('Enter Instructions:')
-    p instructions
     excute_instructions(rover, instructions)
     rover.current_position
   end
@@ -44,7 +44,6 @@ class RoversController
   def set_target_configuration
     field = @mars.find(0)
     config = @rovers_view.ask_user_for('Enter Rover Configuration')
-    p config
     new_config = config.split('').reject { |x| x =~ /\s/ }
     position = [new_config[0].to_i, new_config[1].to_i]
     orientation = new_config[3]
@@ -55,8 +54,6 @@ class RoversController
   def launch_rover_to_mars(rover)
     @rovers.add_rover(rover)
     @rovers_view.advice_user_that('the rover has been launched')
-    sleep(2)
-    @rovers_view.advice_user_that('the rover has successfully landed on MARS')
   end
 
   def select_rover
@@ -80,9 +77,3 @@ class RoversController
     end
   end
 end
-
-# instructions = 'LMLMLMR'
-
-instructions = 'LM LM L J4M'
-trans = instructions.split('').map(&:upcase)
-to_execute = trans.select { |x| x if %w[L R M].include?(x) }

@@ -14,6 +14,11 @@ class Field
     "X: #{@size_x}, Y: #{@size_y}"
   end
 
+  def validate_cordinates(array)
+    x = @field_coordinates.find { |c| c.x == array[0] && c.y == array[1] }
+    !x.nil? ? true : false
+  end
+
   def coordinates_with_rover
     coordinates = []
     @field.each do |coordinate|
@@ -36,3 +41,15 @@ end
 # p test
 # puts ''
 # p test.field_size
+
+
+### VALIDATE COORDINATE
+# test_field = Field.new(size_x: 5, size_y: 5)
+# # p test_field.field_coordinates
+# array = [0, 1]
+# x = test_field.field_coordinates.find { |c| c.x == array[0] && c.y == array[1] }
+# p x # =>  a coordinate with x = 0 and y = 1
+# puts ""
+# p test_field.validate_cordinates([0, 1])
+# puts ""
+# p test_field.validate_cordinates([6, 6])
